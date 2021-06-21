@@ -9,6 +9,7 @@
     display: flex;
     flex-wrap: wrap; 
     flex-direction: row;
+    user-select: none;
 }
 
 .row > div{
@@ -41,3 +42,43 @@
 .bombed{
     color: red
 }
+
+.modal{
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-form{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    width: 30%;
+    height: 30%;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-form button{
+    display: block
+}
+
+.modal-screen{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.8);
+}
+

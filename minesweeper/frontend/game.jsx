@@ -33,6 +33,10 @@ class Game extends React.Component {
     // console.log(this.altHeld)
   }
 
+  restartGame(){
+    this.setState({board: new Minesweeper.Board(9,9)})
+  }
+
   updateGame(tile) {
     console.log(this.altHeld)
     
@@ -45,20 +49,39 @@ class Game extends React.Component {
     
     this.setState({ board: this.state.board })
 
-    if (this.state.board.won()) {
-      alert('you won!')
-    } else if (this.state.board.lost()) {
-      alert('you lost!')
-    }
+    // if (this.state.board.won()) {
+    //   alert('you won!')
+    // } else if (this.state.board.lost()) {
+    //   alert('you lost!')
+    // }
   }
 
   render() {
-    return (
-      <div>
-        <p>Shift-click to flag a tile</p>
-        <Board board = {this.state.board} updateGame = {this.updateGame} />
-      </div>
-    )
+    if (!this.state.board.won() && !this.state.board.lost() ){
+      return (
+        <div>
+          <p>Shift-click to flag a tile</p>
+          <Board board = {this.state.board} updateGame = {this.updateGame} />
+        </div>
+      )
+    }else{
+      return (
+        <div>
+          <div className="modal">
+            <section className="modal-screen"></section>
+            <section className="modal-form" >
+              {/* <div className="close js-modal-close">&times;</div> */}
+              <p>You {this.state.board.won() ? "Win" : "Lose"}</p>
+              <button onClick={this.restartGame.bind(this)}>Restart</button>
+            </section>
+          </div>
+
+          <p>Shift-click to flag a tile</p>
+          <Board board = {this.state.board} updateGame = {this.updateGame} />
+        </div>
+        
+      )
+    }
   }
 }
 

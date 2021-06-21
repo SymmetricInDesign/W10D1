@@ -178,6 +178,13 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
     }
   }, {
+    key: "restartGame",
+    value: function restartGame() {
+      this.setState({
+        board: new Minesweeper.Board(9, 9)
+      });
+    }
+  }, {
     key: "updateGame",
     value: function updateGame(tile) {
       console.log(this.altHeld);
@@ -190,21 +197,34 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
       this.setState({
         board: this.state.board
-      });
-
-      if (this.state.board.won()) {
-        alert('you won!');
-      } else if (this.state.board.lost()) {
-        alert('you lost!');
-      }
+      }); // if (this.state.board.won()) {
+      //   alert('you won!')
+      // } else if (this.state.board.lost()) {
+      //   alert('you lost!')
+      // }
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Shift-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
-        board: this.state.board,
-        updateGame: this.updateGame
-      }));
+      if (!this.state.board.won() && !this.state.board.lost()) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Shift-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
+          board: this.state.board,
+          updateGame: this.updateGame
+        }));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "modal"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
+          className: "modal-screen"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
+          className: "modal-form"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "You ", this.state.board.won() ? "Win" : "Lose"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          onClick: this.restartGame.bind(this)
+        }, "Restart"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Shift-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
+          board: this.state.board,
+          updateGame: this.updateGame
+        }));
+      }
     }
   }]);
 

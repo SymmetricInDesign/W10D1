@@ -190,6 +190,12 @@ var Game = /*#__PURE__*/function (_React$Component) {
       this.setState({
         board: this.state.board
       });
+
+      if (this.state.board.won()) {
+        alert('you won!');
+      } else if (this.state.board.lost()) {
+        alert('you lost!');
+      }
     }
   }, {
     key: "render",
@@ -285,7 +291,7 @@ var Tile = /*#__PURE__*/function (_React$Component) {
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
             id: this.state.key,
-            className: "flagged"
+            className: "flagged unexplored"
           }, "F");
         }
       } else {
@@ -293,12 +299,12 @@ var Tile = /*#__PURE__*/function (_React$Component) {
           if (tile.adjacentBombCount() > 0) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
               id: this.state.key,
-              className: "revealed"
+              className: "explored"
             }, tile.adjacentBombCount());
           } else {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
               id: this.state.key,
-              className: "revealed"
+              className: "explored"
             }, " ");
           }
         } else {

@@ -35,12 +35,21 @@ class Game extends React.Component {
 
   updateGame(tile) {
     console.log(this.altHeld)
-    if (this.altHeld){
+    
+
+    if (this.altHeld) {
       tile.toggleFlag()
-    }else{
+    } else {
       tile.explore()
     }
+    
     this.setState({ board: this.state.board })
+
+    if (this.state.board.won()) {
+      alert('you won!')
+    } else if (this.state.board.lost()) {
+      alert('you lost!')
+    }
   }
 
   render() {

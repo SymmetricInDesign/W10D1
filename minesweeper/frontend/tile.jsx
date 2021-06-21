@@ -26,15 +26,15 @@ class Tile extends React.Component {
         )
       }else{
         return(
-          <div id={this.state.key} className="flagged">F</div>
+          <div id={this.state.key} className="flagged unexplored">F</div>
         )
       }
     }else{
       if (!tile.bombed){
         if (tile.adjacentBombCount() > 0){
-          return <div id={this.state.key} className="revealed">{tile.adjacentBombCount()}</div>
+          return <div id={this.state.key} className="explored">{tile.adjacentBombCount()}</div>
         }else{
-          return <div id={this.state.key} className="revealed"> </div>
+          return <div id={this.state.key} className="explored"> </div>
         }
       }else{
         return <div id={this.state.key} className="bombed">B</div>

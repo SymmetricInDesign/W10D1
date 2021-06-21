@@ -67,7 +67,7 @@ var Board = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.state);
+      // console.log(this.state)
       var tiles = this.state.board.grid.map(function (el, idx1) {
         {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -80,8 +80,8 @@ var Board = /*#__PURE__*/function (_React$Component) {
             });
           }));
         }
-      });
-      console.log(tiles);
+      }); // console.log(tiles)
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "board"
       }, tiles);
@@ -166,8 +166,9 @@ var Game = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "altToggle",
     value: function altToggle(e) {
-      // console.log(e)
-      if (e.keyCode == 18) {
+      console.log(e);
+
+      if (e.keyCode == 70) {
         if (!this.altHeld) {
           this.altHeld = true;
         } else {
@@ -179,8 +180,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "updateGame",
     value: function updateGame(tile) {
-      console.log(this.altHeld);
-
+      // console.log(this.altHeld)
       if (this.altHeld) {
         tile.toggleFlag();
       } else {

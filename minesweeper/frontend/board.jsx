@@ -17,7 +17,7 @@ class Board extends React.Component {
   
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     let tiles = this.state.board.grid.map((el, idx1) => {
       {return (
         <div className="row">
@@ -29,7 +29,7 @@ class Board extends React.Component {
     }
   
     })
-    console.log(tiles)
+    // console.log(tiles)
 
     return (
       <div className="board">

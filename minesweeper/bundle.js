@@ -168,7 +168,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
     value: function altToggle(e) {
       console.log(e);
 
-      if (e.keyCode == 17) {
+      if (e.keyCode == 16) {
         if (!this.altHeld) {
           this.altHeld = true;
         } else {
@@ -201,7 +201,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Ctrl-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Shift-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
         board: this.state.board,
         updateGame: this.updateGame
       }));

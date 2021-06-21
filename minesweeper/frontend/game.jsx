@@ -23,7 +23,7 @@ class Game extends React.Component {
 
   altToggle(e){
     console.log(e)
-    if (e.keyCode == 17){
+    if (e.keyCode == 16){
       if (!this.altHeld){
         this.altHeld = true
       }else{
@@ -55,7 +55,7 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        <p>Ctrl-click to flag a tile</p>
+        <p>Shift-click to flag a tile</p>
         <Board board = {this.state.board} updateGame = {this.updateGame} />
       </div>
     )

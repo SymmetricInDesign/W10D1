@@ -168,7 +168,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
     value: function altToggle(e) {
       console.log(e);
 
-      if (e.keyCode == 70) {
+      if (e.keyCode == 17) {
         if (!this.altHeld) {
           this.altHeld = true;
         } else {
@@ -180,7 +180,8 @@ var Game = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "updateGame",
     value: function updateGame(tile) {
-      // console.log(this.altHeld)
+      console.log(this.altHeld);
+
       if (this.altHeld) {
         tile.toggleFlag();
       } else {
@@ -190,14 +191,20 @@ var Game = /*#__PURE__*/function (_React$Component) {
       this.setState({
         board: this.state.board
       });
+
+      if (this.state.board.won()) {
+        alert('you won!');
+      } else if (this.state.board.lost()) {
+        alert('you lost!');
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Ctrl-click to flag a tile"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_1__.default, {
         board: this.state.board,
         updateGame: this.updateGame
-      });
+      }));
     }
   }]);
 
@@ -284,8 +291,9 @@ var Tile = /*#__PURE__*/function (_React$Component) {
           });
         } else {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+            onClick: this.handleClick.bind(this),
             id: this.state.key,
-            className: "flagged"
+            className: "flagged unexplored"
           }, "F");
         }
       } else {
@@ -293,12 +301,12 @@ var Tile = /*#__PURE__*/function (_React$Component) {
           if (tile.adjacentBombCount() > 0) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
               id: this.state.key,
-              className: "revealed"
+              className: "explored"
             }, tile.adjacentBombCount());
           } else {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
               id: this.state.key,
-              className: "revealed"
+              className: "explored"
             }, " ");
           }
         } else {

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/10-posts.css" type="text/css">
   <link rel="stylesheet" href="css/11-icons.css" type="text/css">
   <link rel="stylesheet" href="css/12-modal.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -38,6 +39,7 @@
         </li>
         <li><a href="#">Profile</a></li>
         <li><a href="#">Settings</a></li>
+        <li class="js-modal-open"><a href="#">Sign In</a></li>
       </ul>
 
     </nav>
@@ -217,6 +219,14 @@
     </section>
   </main>
 
+  <div class="modal">
+    <section class="modal-screen"></section>
+    <section class="modal-form" >
+      <div class="close js-modal-close">&times;</div>
+    </section>
+
+  </div>
+
   <footer class="footer">
 
     <small class="footer-copy">
@@ -232,5 +242,20 @@
 
   </footer>
 
+  <script>
+  $(function(){
+
+    $("body").on("click", ".js-modal-open", function(event){
+      event.preventDefault();
+      $(".modal").addClass("is-open");
+    });
+
+    $("body").on("click", ".js-modal-close", function(event){
+      event.preventDefault();
+      $(".modal").removeClass("is-open");
+    });
+
+  });
+  </script>
 </body>
 </html>

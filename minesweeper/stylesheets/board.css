@@ -1,0 +1,40 @@
+
+#root{
+    display: flex;
+    justify-content: center;
+    /* height: 500px; */
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+}
+
+.row > div{
+    display: inline-block;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-style: outset;
+    /* align-content: center; */
+}
+
+.board{
+    background-color: #d3d3d3;
+    /* height: 500px */
+}
+
+.flagged{
+    color: red
+}
+
+.bombed{
+    color: red
+}
+
+.explored{
+    border-style: inset
+}
